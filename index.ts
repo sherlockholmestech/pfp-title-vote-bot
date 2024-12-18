@@ -199,7 +199,7 @@ bot.command("vote", async (ctx) => {
 
 bot.command("help", async (ctx) => {
 	let message = "Commands: /ping, /submitpfp, /submittitle, /vote, /help\n\n /ping: Pong!\n /submitpfp [name]: Submit a new pfp with name.  Must attach a photo!\n /submittitle [title]: Submit a new title.\n /vote [mode]: Vote on currently submitted pfp / title!  Indicate mode with either pfp or title.\n/finish [mode]: Finish the pfp/title poll.  Indicate mode with either pfp or title.";
-	await ctx.reply("Commands: /ping, /submitpfp, /submittitle, /vote, /help /finish");
+	await ctx.reply(message);
 });
 
 bot.command("finish", async (ctx) => {
