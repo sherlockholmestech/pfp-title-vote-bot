@@ -80,6 +80,10 @@ bot.hears(/submitpfp *(.+)?/, async (ctx) => {
 	if (!photo) {
 		return await ctx.reply("Please attach a photo.");
 	}
+	// Check if user already has a submission, if so unpins the message.
+	if (pfp.messages[user] && pfp.messages[user] !== "") {
+		await bot.api.unpinChatMessage(ctx.chat.id, pfp.messages[user]);
+	}
 	bot.api.pinChatMessage(ctx.chat.id, ctx.message?.message_id);
 	pfp.messages[user] = ctx.message?.message_id;
 	pfp[user] = name;
@@ -95,6 +99,9 @@ bot.command("submittitle", async (ctx) => {
 	}
 	if (!user) {
 		return await ctx.reply("User information is missing.");
+	}
+	if (title.messages[user] && title.messages[user] !== "") {
+		await bot.api.unpinChatMessage(ctx.chat.id, title.messages[user]);
 	}
 	bot.api.pinChatMessage(ctx.chat.id, ctx.message?.message_id);
 	title.messages[user] = ctx.message?.message_id;
