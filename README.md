@@ -2,6 +2,8 @@
 
 A bot that votes on the title and pfp of the group chat.
 
+Currently only works one bot per group chat, so you need to selfhost a bot for each group chat.
+
 To install dependencies:
 
 ```bash
