@@ -1,0 +1,17 @@
+{
+  "name": "pfp-title-vote-bot",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "grammy": "^1.33.0"
+  }
+}
