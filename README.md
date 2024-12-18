@@ -1,5 +1,7 @@
 # pfp-title-vote-bot
 
+A bot that votes on the title and pfp of the group chat.
+
 To install dependencies:
 
 ```bash
