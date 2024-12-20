@@ -235,6 +235,16 @@ bot.command("finish", async (ctx) => {
 		await ctx.reply("Stopping title poll...");
 		if (polls.title && polls.title !== "") {
 			await bot.api.stopPoll(ctx.chat.id, Number.parseInt(polls.title));
+			let polldata = await bot.api.stopPoll(ctx.chat.id, Number.parseInt(polls.pfp));
+			let winner = "";
+			let winnerVotes = 0;
+			for (const option of polldata.options) {
+				if (option.voter_count > winnerVotes) {
+					winner = option.text;
+					winnerVotes = option.voter_count;
+				}
+			}
+			await ctx.reply(`The winner is: "${winner}" with a total of ${winnerVotes} votes!`);
 			polls.title = "";
 			await Bun.write(pollsjson, JSON.stringify(polls));
 			console.log("HI!");
