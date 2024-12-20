@@ -216,7 +216,7 @@ bot.command("finish", async (ctx) => {
 					winnerVotes = option.voter_count;
 				}
 			}
-			await ctx.reply(`The winner is: ${winner} with a total of ${winnerVotes} votes!`);
+			await ctx.reply(`The winner is: "${winner}" with a total of ${winnerVotes} votes!`);
 			polls.pfp = "";
 			await Bun.write(pollsjson, JSON.stringify(polls));
 			// reset pfp.json
