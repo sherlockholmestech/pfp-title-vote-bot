@@ -152,10 +152,10 @@ bot.command("vote", async (ctx) => {
 		}
 		console.log(options);
 		if (options.length < 2) {
-			return await ctx.reply("Not enough pfps have been submitted.");
+			return await ctx.reply("Not enough title have been submitted.");
 		}
 		if (polls.title && polls.title !== "") {
-			await ctx.reply("Stopping previous pfp poll...");
+			await ctx.reply("Stopping previous title poll...");
 			await bot.api.stopPoll(ctx.chat.id, Number.parseInt(polls.title));
 			await bot.api.unpinChatMessage(ctx.chat.id, Number.parseInt(polls.title));
 			polls.title = "";
